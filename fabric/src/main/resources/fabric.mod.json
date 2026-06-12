@@ -8,16 +8,14 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://fabricmc.net/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
+        "homepage": "https://modrinth.com/mod/decaying-spawners",
+        "sources": "https://github.com/ivangeevo/decaying-spawners"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",
     "environment": "*",
     "entrypoints": {
-        "main": [
-            "com.example.examplemod.ExampleMod"
-        ]
+        "main": ["org.btwr.decaying_spawners.DecayingSpawnersMod"]
     },
     "mixins": [
         "${mod_id}.mixins.json",
@@ -33,4 +31,3 @@
         "another-mod": "*"
     }
 }
-  
