@@ -4,8 +4,14 @@
   "package": "org.btwr.decaying_spawners.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [],
-  "client": [],
+  "mixins": [
+    "BaseSpawnerMixin",
+    "SpawnerBlockEntityMixin"
+  ],
+  "client": [
+    "client.BaseSpawnerClientMixin",
+    "client.SpawnerRendererMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
