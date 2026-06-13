@@ -3,6 +3,8 @@ package org.btwr.decaying_spawners.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,6 +28,13 @@ public abstract class BaseSpawnerMixin implements DecayableSpawner {
     @Override
     public boolean decayingSpawners$isDecayed() {
         return this.decayed;
+    }
+
+    @Override
+    public void decayingSpawners$resetDecay() {
+        this.decayed = false;
+        this.mobSpawnCount = 0;
+        this.spawnerTickCount = 0;
     }
 
     // Runs after a successful spawn batch
@@ -75,6 +84,7 @@ public abstract class BaseSpawnerMixin implements DecayableSpawner {
 
         // Trigger a block update so the block entity/renderer gets notified
         BlockState state = level.getBlockState(pos);
+        //level.playSound(null, pos, SoundEvents.CONDUIT_DEACTIVATE, SoundSource.BLOCKS, 1.5F, 0.4F);
         level.sendBlockUpdated(pos, state, state, 3);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(state));
     }
