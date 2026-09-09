@@ -14,7 +14,7 @@ import java.util.Set;
 public class ModConfig {
 
     /** How many mobs a spawner spawns before decaying. -1 = disabled **/
-    public static int maxMobSpawnCount = 12;
+    public static int maxMobSpawnCount = 64;
 
     /** How many ticks a spawner can be active before decaying. -1 = disabled **/
     public static int maxSpawnerTicks = -1;
